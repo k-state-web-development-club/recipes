@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=50)
@@ -7,3 +8,10 @@ class Ingredient(models.Model):
 class Recipe(model.Model):
     name = models.CharField(max_length=50)
     ingredients = models.ManyToManyField(Ingredient)
+    #FileField option for images
+    #images = models.ManyToManyField(
+    rating = models.FloatField()
+    description = models.CharField(max_length= 500)
+    tags = ArrayField(models.CharField(max_length=50))
+
+
